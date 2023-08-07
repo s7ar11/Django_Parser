@@ -1,0 +1,21 @@
+<!-- parser_app/templates/result.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parser Results</title>
+</head>
+<body>
+    <h1>Parser Results</h1>
+    {% if result %}
+        <h2>Broken Images:</h2>
+        <p>
+            {% for link in result %}
+                {{ link }}<br>
+            {% endfor %}
+        </p>
+    {% else %}
+        <p>No broken images found.</p>
+    {% endif %}
+</body>
+</html>

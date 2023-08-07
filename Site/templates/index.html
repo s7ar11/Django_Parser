@@ -1,0 +1,32 @@
+<!-- parser_app/templates/index.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>URL Parser</title>
+</head>
+<body>
+    <h1>URL Parser</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="base_url">Базовый URL:</label>
+        <input type="text" name="base_url" value="{{ base_url }}" required><br>
+
+        <label for="start_page">Начальная страница:</label>
+        <input type="number" name="start_page" value="{{ start_page }}" required><br>
+
+        <label for="end_page">Конечная страница:</label>
+        <input type="number" name="end_page" value="{{ end_page }}" required><br>
+
+        <input type="submit" value="Отправить">
+    </form>
+    {% if result %}
+        <h2>Сломанные изображения:</h2>
+        <ul>
+            {% for link in result %}
+                <li>{{ link }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
